@@ -1,0 +1,10 @@
+<view class="verticalSliderContainer" id="verticalSliderContainer" style="width:{{sliderWidth}}" catchtap="sliderClick">
+	<view class="progress-max"></view>
+	<view class="progress-current" style="background-color:{{currentColor}};height:{{currentProgress}}px"></view>
+	<view class="slider-button" style="bottom:{{buttonPosition-buttonHeight/2}}px;margin-left:-{{buttonWidth/2}}px" catchtouchmove="buttonMove" catchtouchstart="buttonStart" catchtouchend="buttonEnd">
+		<view class="button-slot" style="height:{{buttonHeight}}px;width:{{buttonWidth}}px">
+			<slot name="sliderButton"></slot>
+		</view>
+		<view class="defaultButton" style="height:{{buttonHeight}}px;width:{{buttonWidth}}px"></view>
+	</view>
+</view>
