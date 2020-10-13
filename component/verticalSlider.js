@@ -15,10 +15,6 @@ Component({
       type:Boolean,
       value:false
     },
-    sliderWidth: {
-      type: String,
-      value: "100%"
-    },
     currentColor: {
       type: String,
       value: "#e8e8f6"
