@@ -41,7 +41,7 @@
 
 ```html
 
-<verticalSlider id="strenghSlider" step="{{10}}" buttonWidth="{{38}}" buttonHeight="{{56}}" cancelClick="{{true}}" 			   	 bind:startEvent="start" bind:endEvent="end"> <image slot="sliderButton" src="../../imgs/sliderButton.jpg"></image>
+<verticalSlider id="strenghSlider" step="{{10}}" buttonWidth="{{38}}" buttonHeight="{{56}}" cancelClick="{{true}}" bind:startEvent="start" bind:endEvent="end"> <image slot="sliderButton" src="../../imgs/sliderButton.jpg"></image>
 </verticalSlider>
 ```
 
