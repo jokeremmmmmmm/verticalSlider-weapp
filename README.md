@@ -8,6 +8,8 @@
 | ------------ | ------- | -------- | ---------------------- |
 | cancelClick  | Boolean | false    | 是否取消点击选择事件   |
 | currentColor | String  | \#e8e8f6 | 当前进度的拖动条背景色 |
+| grooveColor  | String  | white | 凹槽背景色 |
+| grooveRadius | String  | none | 拖动条圆角 |
 | buttonWidth  | Number  | 20（px） | 默认拖动按钮的宽度     |
 | buttonHeight | Number  | 20（px） | 默认拖动按钮的高度     |
 | step         | Number  | 1        | 步长（最大值为100）    |
