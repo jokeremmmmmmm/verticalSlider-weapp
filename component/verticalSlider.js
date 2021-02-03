@@ -15,6 +15,18 @@ Component({
       type:Boolean,
       value:false
     },
+    sliderWidth: {
+      type: String,
+      value: "100%"
+    },
+    grooveRadius: {
+      type: String,
+      value: "none"
+    },
+    grooveColor: {
+      type: String,
+      value: "white"
+    },
     currentColor: {
       type: String,
       value: "#e8e8f6"
@@ -162,6 +174,7 @@ Component({
       return Math.round((this.data.currentProgress / max).toFixed(2) * 100);
     },
     setCurrentValue(val){
+      // console.log("改变：",val)
       this.setData({
         buttonPosition: (val/100)*max,
         currentProgress: (val/100)*max
