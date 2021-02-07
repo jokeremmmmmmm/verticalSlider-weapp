@@ -42,9 +42,11 @@
 页面wxml文件中：
 
 ```html
-
-<verticalSlider id="strenghSlider" step="{{10}}" buttonWidth="{{38}}" buttonHeight="{{56}}" cancelClick="{{true}}" bind:startEvent="start" bind:endEvent="end"> 
-  <image slot="sliderButton" src="../../imgs/sliderButton.jpg"></image>
-</verticalSlider>
+// 组件宽高铺满父元素
+<view>
+  <verticalSlider id="strenghSlider" step="{{10}}" buttonWidth="{{38}}" buttonHeight="{{56}}" cancelClick="{{true}}" bind:startEvent="start" bind:endEvent="end"> 
+    <image slot="sliderButton" src="../../imgs/sliderButton.jpg"></image>
+  </verticalSlider>
+</view>
 ```
 
