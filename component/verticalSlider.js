@@ -42,7 +42,11 @@ Component({
     step: {
       type: Number,
       value: 1
-    }
+    },
+    edgeSelectionMode:{
+      type:Boolean,
+      value:false
+    },
   },
 
   /**
@@ -116,7 +120,7 @@ Component({
     },
     buttonEnd(e) {
       startPosition = e.touches[0];
-      this.afterButtonEnd();
+      this.afterButtonEnd('slide');
       var endEventDetail = {
         value: this.getCurrentValue()
       } // detail对象，提供给事件监听函数
@@ -150,17 +154,41 @@ Component({
           currentProgress: min
         });
       }
-      this.afterButtonEnd();
+      this.afterButtonEnd('click');
       var clickEventDetail = {
         value: this.getCurrentValue()
       } // detail对象，提供给事件监听函数
       var clickEventOption = {} // 触发事件的选项
       this.triggerEvent('clickEvent', clickEventDetail, clickEventOption)
     },
-    afterButtonEnd() {
+    afterButtonEnd(type) {
       let s = Number(this.properties.step);
-      let t = Number(this.data.currentProgress);
       let e = ((s/100)*max).toFixed(1);
+      let t;
+      if(type === 'click' && this.properties.edgeSelectionMode){
+        let curr = Number(this.data.currentProgress);
+        let ceil = Math.ceil(curr/e) * e;
+        let floor = Math.floor(curr/e) * e;
+        let p = Math.round(curr - floor);
+        if((p / e)>0.8){
+          t = ceil
+        }
+        else if((p / e)<0.2){
+          t = floor
+        }
+        else{
+          if(this.data.buttonPositionTmp < curr){
+            t = (Math.round(this.data.buttonPositionTmp / e) + 1 ) * e
+          }
+          else if(this.data.buttonPositionTmp > curr){
+            t = (Math.round(this.data.buttonPositionTmp / e) - 1 ) * e
+          }
+        }
+      }
+      else{
+        t = Number(this.data.currentProgress);
+      }
+       
       if (s == 0) {
         return
       } else {
@@ -174,7 +202,6 @@ Component({
       return Math.round((this.data.currentProgress / max).toFixed(2) * 100);
     },
     setCurrentValue(val){
-      // console.log("改变：",val)
       this.setData({
         buttonPosition: (val/100)*max,
         currentProgress: (val/100)*max
