@@ -13,6 +13,7 @@
 | buttonWidth  | Number  | 20（px） | 默认拖动按钮的宽度     |
 | buttonHeight | Number  | 20（px） | 默认拖动按钮的高度     |
 | step         | Number  | 1        | 步长（最大值为100）    |
+| edgeSelectionMode         | Boolean  | false        | 点击间距智能选边    |
 
 
 
